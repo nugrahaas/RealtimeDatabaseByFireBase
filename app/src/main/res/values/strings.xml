@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RealtimeDatabaseByFireBase</string>
+    <array name="genres">
+        <item>Rock</item>
+        <item>Pop</item>
+        <item>Dangdut</item>
+        <item>Folk</item>
+
+    </array>
+
+</resources>
