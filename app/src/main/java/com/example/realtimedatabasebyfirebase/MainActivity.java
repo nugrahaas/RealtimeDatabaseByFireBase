@@ -26,8 +26,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String ARTIST_NAME = "artistname";
-    public static final String ARTIST_ID = "artistid";
+    public static final String ARTIST_NAME = "artistName";
+    public static final String ARTIST_ID = "artistID";
 
     EditText editTextName;
     Button buttonAddArtist;
@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Artists artists = artistsList.get(position);
-                Intent intent = new Intent(getApplicationContext(), AddTrackActivity.class);
 
+                Intent intent = new Intent(getApplicationContext(), AddTrackActivity.class);
                 intent.putExtra(ARTIST_ID, artists.getArtistID());
                 intent.putExtra(ARTIST_NAME, artists.getArtistName());
 

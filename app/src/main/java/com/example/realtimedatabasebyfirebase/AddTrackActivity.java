@@ -26,7 +26,7 @@ public class AddTrackActivity extends AppCompatActivity {
     Button buttonAddTrack;
     EditText editTextTrackName;
     SeekBar seekBarRating;
-    TextView textViewRating, textViewArtistName;
+    TextView textViewArtistName;
     ListView listViewTracks;
 
     DatabaseReference databaseTracks;
@@ -38,24 +38,28 @@ public class AddTrackActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_track);
 
-        Intent intent = getIntent();
-
-        databaseTracks = FirebaseDatabase.getInstance().getReference("track").child(intent.getStringExtra(MainActivity.ARTIST_ID));
-
         buttonAddTrack = (Button) findViewById(R.id.buttonAddTracks);
-        editTextTrackName = (EditText) findViewById(R.id.editTextName);
+        editTextTrackName = (EditText) findViewById(R.id.editTextTrackName);
         seekBarRating = (SeekBar) findViewById(R.id.seekBarRating);
         textViewArtistName = (TextView) findViewById(R.id.textViewArtistName);
         listViewTracks = (ListView) findViewById(R.id.listViewTracks);
 
+        Intent intent = getIntent();
+
+        String id = intent.getStringExtra(MainActivity.ARTIST_ID);
+        String name = intent.getStringExtra(MainActivity.ARTIST_NAME);
+
+        databaseTracks = FirebaseDatabase.getInstance().getReference("tracks").child(id);
+
+        textViewArtistName.setText(name);
+
         tracks = new ArrayList<>();
 
-        textViewArtistName.setText(intent.getStringExtra(MainActivity.ARTIST_NAME));
 
         seekBarRating.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                textViewRating.setText(String.valueOf(i));
+
             }
 
             @Override

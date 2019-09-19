@@ -1,6 +1,10 @@
 package com.example.realtimedatabasebyfirebase;
 
 public class Track {
+    public String getId() {
+        return id;
+    }
+
     private String id;
     private String trackName;
     private int rating;
